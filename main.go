@@ -29,31 +29,32 @@ var Tl TinyLog
 
 func main() {
 	if os.Getenv("QUERY_STRING") == "" {
-		fmt.Println("10\ttext/gemtext\r\n")
-		fmt.Println("Enter the URL to test: ")
+		fmt.Print("10\ttext/gemtext\r\n")
+		fmt.Print("Enter the URL to test: ")
 		os.Exit(0)
 	}
 
 	re := regexp.MustCompile(`(?im)^\w+$`)
 	if re.MatchString(os.Getenv("QUERY_STRING")) == false {
-		fmt.Println("20\ttext/gemini\r\n")
+		fmt.Print("20 text/gemini\r\n")
 		fmt.Println("Wrong user name", os.Getenv("QUERY_STRING"))
-		fmt.Println("\r\n")
+		fmt.Print("\r\n")
 		os.Exit(0)
 	}
 	link := "gemini://station.martinrue.com/" + os.Getenv("QUERY_STRING")
 	e := Tl.generateFromStationPage(link)
 	if e != nil {
-		fmt.Println("20\ttext/gemini\r\n")
+		fmt.Print("20 text/gemini\r\n")
 		fmt.Println("Error retrieving from station:", e)
-		fmt.Println("\r\n")
+		fmt.Print("\r\n")
 		os.Exit(0)
 	}
 
 	tl := Tl.generateTinyLog()
-	fmt.Println("20\ttext/gemini\r\n")
-	fmt.Println(tl)
-	fmt.Println("\r\n")
+	fmt.Print("20 text/gemini\r\n")
+	fmt.Print(tl)
+	fmt.Print("\n")
+	os.Exit(0)
 }
 
 func (Tl *TinyLog) generateFromStationPage(link string) error {
