@@ -1,4 +1,4 @@
-GOCMD := CGO_ENABLED=0 go1.16.4
+GOCMD := CGO_ENABLED=0 go
 BINARY := sttl
 BINDIR := ./bin
 VERSION := 0.0.1
