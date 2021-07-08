@@ -68,7 +68,7 @@ func (Tl *TinyLog) generateFromStationPage(link string) error {
 
 func (Tl *TinyLog) generateTinyLog() string {
 	tinylog := "# " + Tl.Author + "'s TinyLog - Generated from station\n\n"
-	tinylog = tinylog + "author: @" + Tl.Author + "\n"
+	tinylog = tinylog + "author: @" + Tl.Author + "@station.martinrue.com\n"
 	if Tl.Avatar != "" {
 		tinylog = tinylog + "avatar: " + Tl.Avatar + "\n"
 	}
